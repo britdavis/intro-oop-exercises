@@ -29,7 +29,6 @@
 			
 			this.reverse = function() {
 				//reverse the sentence
-				// console.log(wordsArray.reverse().join(" "));
 				return wordsArray.reverse();
 			};
 			
@@ -38,19 +37,17 @@
 				return wordsArray[i];
 			};
 		}
-		
-		/* Some Tests. Make them all pass! */
-		
+	
 		var s = new Sentence(["Hello", "I", "Am", "Computer"]);
 		var s2 = new Sentence (["I", "am", "not", "a", "human"]);
-		// var paragraph = "";
+
+		/* Some Tests. Make them all pass! */
 		console.log(s.getWordCount() == 4);
 		console.log(s.getLetterCount() == 19); //remember spaces!
 		console.log(s.getWordAt(0) == "Hello");
 		s.reverse();
 		console.log(s.getWordAt(0) == "Computer");
-		s.reverse();
-		// console.log("hello");
+		s.reverse(); // reverts sentence to original
 
 		 /*
 		 Create a new constructor function for a Paragraph
@@ -70,53 +67,32 @@
 		p = new Paragraph([s, s2]);
 
 		function Paragraph(sentenceArray) {
-			// why does this work but using (wordsArray, wordsArray2) doesn't?
 			this.sentenceArray = sentenceArray;
-			// this.wordsArray = wordsArray;
-			// this.wordsArray2 = wordsArray2;
 			
 			this.getWordCount = function() {
 				var wordCount = 0;
-				// var paragraphs = ""
 				for(var sentence of sentenceArray) {
-					// console.log(sentence.wordsArray.length);
 					wordCount += sentence.wordsArray.length;
-					// paragraphs += sentence.wordsArray.join(" ") + " ";
-					// paragraphs += " " + sentence.wordsArray[1].join(" ")
 				}
-				console.log("This paragraph has " + wordCount + " words.");
-				// console.log(paragraphs);
-
-				// for (var i = 0; i < sentenceArray.length; i++) {
-    //             	console.log(sentenceArray[i]);
-    //             	myArray.push(sentenceArray[i].join());
-                	// wordCount += (sentenceArray[i].length);
-                	// return (arr.join(" ").length);
-                	// }					
+				console.log("This paragraph has " + wordCount + " words.");				
 			};
 
 			this.getLetterCount = function() {
 				var letterCount = 0;
 				for(var sentence of sentenceArray) {
-					// console.log(sentence.wordsArray.join(" ").length);
 					letterCount +=(sentence.wordsArray.join(" ").length);
-					// var paragraphs = sentence.wordsArray.join(" ");
 				}
 				console.log("This paragraph has " + letterCount + " letters.");
-				// console.log((s + s2).length); // this gets letter count on accident
 				
 			};
 			this.getWordAt = function(i) {
 				var strParagraph = "";
 				for(var sentence of sentenceArray) {
-					// // console.log(sentence.wordsArray.length);
-					// wordCount += sentence.wordsArray.length;
 					strParagraph += sentence.wordsArray.join(" ") + " ";
 				}
 				console.log(strParagraph);
 				paragraph = strParagraph.split(" ");
 				console.log(paragraph[i]);
-
 			};
 
 			this.getSentenceCount = function() {
@@ -125,10 +101,8 @@
 			};
 
 			this.addToHTML = function() {
-				var strParagraph = ""
+				var strParagraph = "";
 				for(var sentence of sentenceArray) {
-					// // console.log(sentence.wordsArray.length);
-					// wordCount += sentence.wordsArray.length;
 					strParagraph += sentence.wordsArray.join(" ") + " ";
 				}
 				console.log(strParagraph);
@@ -137,16 +111,6 @@
 			};
 		
 		}
-		// console.log("line 119" + " " + s.getWordCount() + " " + s2.getWordCount());
-
-
-		// p.getWordCount();
-
-		// console.log("line 83" + " " + );
-		// console.log(p);
-		 
-		// console.log(s2); // this returns the function Sentence and its methods
-		// console.log(s2.getWordCount);
 
 	</script>
 </body>
