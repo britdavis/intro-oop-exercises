@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OOP</title>
+</head>
+<body>
+     <h1>Introduction to Object Oriented Programming!</h1>
+     <small>Instructions are  in the code! How exciting!</small>
+    <div id="paragraphs"></div>
+
+	<script>
+            // Finish the Following constructor
+
+		function Sentence(wordsArray) {
+			this.wordsArray = wordsArray;
+			console.log(wordsArray);
+			
+			this.getWordCount = function() {
+                		//find the amount of words in the sentence
+                console.log(wordsArray.length);
+                return wordsArray.length;
+			};
+			
+			this.getLetterCount = function() {
+                		//find the amount of letters in the sentence
+                	console.log(wordsArray.join(" ").length);
+                	return (wordsArray.join(" ").length);
+			};
+			
+			this.reverse = function() {
+				//reverse the sentence
+				// console.log(wordsArray.reverse().join(" "));
+				return wordsArray.reverse();
+			};
+			
+			this.getWordAt = function(i) {
+				//return the word at index i
+				return wordsArray[i];
+			};
+		}
+		
+		/* Some Tests. Make them all pass! */
+		
+		var s = new Sentence(["Hello", "I", "Am", "Computer"]);
+		var s2 = new Sentence (["I", "am", "not", "a", "human"]);
+		// var paragraph = "";
+		console.log(s.getWordCount() == 4);
+		console.log(s.getLetterCount() == 19); //remember spaces!
+		console.log(s.getWordAt(0) == "Hello");
+		s.reverse();
+		console.log(s.getWordAt(0) == "Computer");
+		s.reverse();
+		// console.log("hello");
+
+		 /*
+		 Create a new constructor function for a Paragraph
+		 
+		 You should be able to
+		 	var s2 = new Sentence (["I", "am", "not", "a", "human"]);
+		 	p = new Paragraph([s, s2]);
+		 
+		 Implement the following:
+			p.getWordCount() <-- works
+			p.getLetterCount() <-- works
+			p.getWordAt(10) <-- works
+			p.getSentenceCount() <-- works
+			p.addToHTML("paragraphs") <-- works
+		*/
+
+		p = new Paragraph([s, s2]);
+
+		function Paragraph(sentenceArray) {
+			// why does this work but using (wordsArray, wordsArray2) doesn't?
+			this.sentenceArray = sentenceArray;
+			// this.wordsArray = wordsArray;
+			// this.wordsArray2 = wordsArray2;
+			
+			this.getWordCount = function() {
+				var wordCount = 0;
+				// var paragraphs = ""
+				for(var sentence of sentenceArray) {
+					// console.log(sentence.wordsArray.length);
+					wordCount += sentence.wordsArray.length;
+					// paragraphs += sentence.wordsArray.join(" ") + " ";
+					// paragraphs += " " + sentence.wordsArray[1].join(" ")
+				}
+				console.log("This paragraph has " + wordCount + " words.");
+				// console.log(paragraphs);
+
+				// for (var i = 0; i < sentenceArray.length; i++) {
+    //             	console.log(sentenceArray[i]);
+    //             	myArray.push(sentenceArray[i].join());
+                	// wordCount += (sentenceArray[i].length);
+                	// return (arr.join(" ").length);
+                	// }					
+			};
+
+			this.getLetterCount = function() {
+				var letterCount = 0;
+				for(var sentence of sentenceArray) {
+					// console.log(sentence.wordsArray.join(" ").length);
+					letterCount +=(sentence.wordsArray.join(" ").length);
+					// var paragraphs = sentence.wordsArray.join(" ");
+				}
+				console.log("This paragraph has " + letterCount + " letters.");
+				// console.log((s + s2).length); // this gets letter count on accident
+				
+			};
+			this.getWordAt = function(i) {
+				var strParagraph = "";
+				for(var sentence of sentenceArray) {
+					// // console.log(sentence.wordsArray.length);
+					// wordCount += sentence.wordsArray.length;
+					strParagraph += sentence.wordsArray.join(" ") + " ";
+				}
+				console.log(strParagraph);
+				paragraph = strParagraph.split(" ");
+				console.log(paragraph[i]);
+
+			};
+
+			this.getSentenceCount = function() {
+				console.log("There are " +
+					sentenceArray.length + " sentences");
+			};
+
+			this.addToHTML = function() {
+				var strParagraph = ""
+				for(var sentence of sentenceArray) {
+					// // console.log(sentence.wordsArray.length);
+					// wordCount += sentence.wordsArray.length;
+					strParagraph += sentence.wordsArray.join(" ") + " ";
+				}
+				console.log(strParagraph);
+				paragraph = strParagraph.split(" ");
+				document.getElementById("paragraphs").innerHTML = strParagraph;
+			};
+		
+		}
+		// console.log("line 119" + " " + s.getWordCount() + " " + s2.getWordCount());
+
+
+		// p.getWordCount();
+
+		// console.log("line 83" + " " + );
+		// console.log(p);
+		 
+		// console.log(s2); // this returns the function Sentence and its methods
+		// console.log(s2.getWordCount);
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
